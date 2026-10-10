@@ -1,0 +1,1686 @@
+[
+  {
+    "id": "TBS-APSRTC-AMR-01",
+    "operator": "APSRTC",
+    "service_name": "Amaravati Multi-Axle Scania AC Sleeper",
+    "operator_type": "RTC",
+    "bus_type": "AC Sleeper (2+1)",
+    "bus_model": "Scania Metrolink HD 14.5M",
+    "from_city": "Visakhapatnam",
+    "to_city": "Hyderabad",
+    "departure_time": "20:30",
+    "arrival_time": "07:15",
+    "duration": "10h 45m",
+    "duration_minutes": 645,
+    "distance_km": 625,
+    "rating": 4.6,
+    "review_count": 2840,
+    "fare": {
+      "base": 1150,
+      "tax": 58,
+      "total": 1208,
+      "currency": "INR"
+    },
+    "seats": {
+      "total": 36,
+      "available": 11,
+      "layout_type": "sleeper_2x1",
+      "available_seat_numbers": ["L2", "L5", "L9", "L11", "U1", "U4", "U7", "U10", "U12", "U15", "U18"],
+      "ladies_seats_available": 3
+    },
+    "boarding_points": [
+      {
+        "id": "BP-VSKP-01",
+        "name": "Dwaraka Bus Station (RTC Complex)",
+        "time": "20:30",
+        "landmark": "Platform 21, Enquiry Gate",
+        "map_link": "https://maps.google.com/?q=Dwaraka+Bus+Station+RTC+Complex+Visakhapatnam"
+      },
+      {
+        "id": "BP-VSKP-02",
+        "name": "Rama Talkies",
+        "time": "20:45",
+        "landmark": "Near Rama Talkies Junction SBI ATM",
+        "map_link": "https://maps.google.com/?q=Rama+Talkies+Visakhapatnam"
+      },
+      {
+        "id": "BP-VSKP-03",
+        "name": "Gurudwara Junction",
+        "time": "21:00",
+        "landmark": "Opposite TSR Complex",
+        "map_link": "https://maps.google.com/?q=Gurudwara+Junction+Visakhapatnam"
+      },
+      {
+        "id": "BP-VSKP-04",
+        "name": "Gajuwaka",
+        "time": "21:30",
+        "landmark": "Near Mohini Theatre & RTC Depot",
+        "map_link": "https://maps.google.com/?q=Gajuwaka+RTC+Depot+Visakhapatnam"
+      },
+      {
+        "id": "BP-VSKP-05",
+        "name": "Anakapalle By-pass",
+        "time": "22:05",
+        "landmark": "NH16 Anakapalle Toll Plaza Entry",
+        "map_link": "https://maps.google.com/?q=Anakapalle+Bypass+Toll+Plaza"
+      }
+    ],
+    "dropping_points": [
+      {
+        "id": "DP-HYD-01",
+        "name": "Hayathnagar",
+        "time": "05:45",
+        "landmark": "Bus Stop near Sunrise Hospital",
+        "map_link": "https://maps.google.com/?q=Hayathnagar+Bus+Stop+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-02",
+        "name": "LB Nagar Ring Road",
+        "time": "06:15",
+        "landmark": "Under Metro Station Pillar 12",
+        "map_link": "https://maps.google.com/?q=LB+Nagar+Metro+Station+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-03",
+        "name": "MGBS (Imlibun)",
+        "time": "06:45",
+        "landmark": "Arrival Terminal Platform 32",
+        "map_link": "https://maps.google.com/?q=Mahatma+Gandhi+Bus+Station+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-04",
+        "name": "Lakdikapul",
+        "time": "07:05",
+        "landmark": "Near Global Hospital Bus Stand",
+        "map_link": "https://maps.google.com/?q=Lakdikapul+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-05",
+        "name": "Ameerpet",
+        "time": "07:15",
+        "landmark": "Near Maitrivanam Metro Station",
+        "map_link": "https://maps.google.com/?q=Ameerpet+Metro+Station+Hyderabad"
+      }
+    ],
+    "amenities": [
+      "Air Conditioning",
+      "Blanket & Linen Pack",
+      "USB Charging Ports",
+      "Emergency Exit",
+      "Live GPS Tracking",
+      "Reading Lamps",
+      "CCTV Surveillance",
+      "Spacious Luggage Bay"
+    ],
+    "cancellation_policy": {
+      "zero_fee_cancellation_hours": 24,
+      "refund_percentage": 90,
+      "terms": "Up to 90% refund before 24 hrs. 50% refund between 24 and 4 hrs prior to departure."
+    },
+    "status": {
+      "current_state": "ON_TIME",
+      "delay_minutes": 0,
+      "delay_reason": null,
+      "live_location": "En route - Approaching Rajahmundry Bridge (NH16)",
+      "last_updated": "3 minutes ago"
+    },
+    "links": {
+      "official_booking_url": "https://www.apsrtconline.in",
+      "aggregator_search_url": "https://www.redbus.in/bus-tickets/visakhapatnam-to-hyderabad",
+      "operator_phone": "0866-2570005",
+      "operator_support_email": "customercare@apsrtc.ap.gov.in"
+    }
+  },
+  {
+    "id": "TBS-ORANGE-V96-02",
+    "operator": "Orange Travels",
+    "service_name": "Volvo 9600 B11R Luxury Sleeper (2+1)",
+    "operator_type": "Private",
+    "bus_type": "AC Sleeper (2+1)",
+    "bus_model": "Volvo 9600 Multi-Axle 15M Euro-VI",
+    "from_city": "Visakhapatnam",
+    "to_city": "Hyderabad",
+    "departure_time": "21:15",
+    "arrival_time": "07:45",
+    "duration": "10h 30m",
+    "duration_minutes": 630,
+    "distance_km": 625,
+    "rating": 4.8,
+    "review_count": 4120,
+    "fare": {
+      "base": 1450,
+      "tax": 73,
+      "total": 1523,
+      "currency": "INR"
+    },
+    "seats": {
+      "total": 36,
+      "available": 5,
+      "layout_type": "sleeper_2x1",
+      "available_seat_numbers": ["L3", "L8", "U4", "U11", "U16"],
+      "ladies_seats_available": 1
+    },
+    "boarding_points": [
+      {
+        "id": "BP-VSKP-06",
+        "name": "RTC Complex Orange Office",
+        "time": "21:15",
+        "landmark": "Beside Diamond Park & Hotel Green Park",
+        "map_link": "https://maps.google.com/?q=Orange+Tours+and+Travels+Visakhapatnam+RTC+Complex"
+      },
+      {
+        "id": "BP-VSKP-07",
+        "name": "Gurudwara Junction",
+        "time": "21:30",
+        "landmark": "Near Orange Travels Pick-up Point",
+        "map_link": "https://maps.google.com/?q=Gurudwara+Junction+Visakhapatnam"
+      },
+      {
+        "id": "BP-VSKP-08",
+        "name": "NAD Junction",
+        "time": "21:50",
+        "landmark": "Under NAD Flyover Pillar 14",
+        "map_link": "https://maps.google.com/?q=NAD+Junction+Flyover+Visakhapatnam"
+      },
+      {
+        "id": "BP-VSKP-09",
+        "name": "Gajuwaka Orange Office",
+        "time": "22:15",
+        "landmark": "Opposite High School Road Junction",
+        "map_link": "https://maps.google.com/?q=Gajuwaka+Orange+Travels+Visakhapatnam"
+      }
+    ],
+    "dropping_points": [
+      {
+        "id": "DP-HYD-06",
+        "name": "LB Nagar Orange Travels",
+        "time": "06:30",
+        "landmark": "Opposite Big Bazaar, Ring Road",
+        "map_link": "https://maps.google.com/?q=LB+Nagar+Ring+Road+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-07",
+        "name": "Ameerpet",
+        "time": "07:15",
+        "landmark": "Beside Gurudwara Road",
+        "map_link": "https://maps.google.com/?q=Ameerpet+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-08",
+        "name": "Kukatpally Y Junction",
+        "time": "07:35",
+        "landmark": "Near Metro Pillar 810",
+        "map_link": "https://maps.google.com/?q=Kukatpally+Y+Junction+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-09",
+        "name": "Miyapur Allwyn X Roads",
+        "time": "07:50",
+        "landmark": "Opposite Talkie Town",
+        "map_link": "https://maps.google.com/?q=Miyapur+Cross+Roads+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-10",
+        "name": "Gachibowli ORR Junction",
+        "time": "08:15",
+        "landmark": "Near Telecom Nagar Bus Shelter",
+        "map_link": "https://maps.google.com/?q=Gachibowli+Junction+Hyderabad"
+      }
+    ],
+    "amenities": [
+      "Air Conditioning",
+      "Individual LED Screen",
+      "Mineral Water Bottle",
+      "Sanitized Fleece Blanket",
+      "Fast Type-C Charging Socket",
+      "High-Speed Wi-Fi",
+      "GPS Live Telemetry",
+      "Emergency Hammer & SOS Alarm",
+      "Luggage Tagging & Care"
+    ],
+    "cancellation_policy": {
+      "zero_fee_cancellation_hours": 12,
+      "refund_percentage": 85,
+      "terms": "85% refund if cancelled > 12 hours before departure. 50% within 4-12 hours."
+    },
+    "status": {
+      "current_state": "ON_TIME",
+      "delay_minutes": 0,
+      "delay_reason": null,
+      "live_location": "Cruising smoothly near Eluru Bypass",
+      "last_updated": "1 minute ago"
+    },
+    "links": {
+      "official_booking_url": "https://www.orangetravels.in",
+      "aggregator_search_url": "https://www.redbus.in/bus-tickets/visakhapatnam-to-hyderabad",
+      "operator_phone": "040-33559999",
+      "operator_support_email": "support@orangetravels.in"
+    }
+  },
+  {
+    "id": "TBS-APSRTC-GAR-03",
+    "operator": "APSRTC",
+    "service_name": "Garuda Plus Multi-Axle AC Semi-Sleeper",
+    "operator_type": "RTC",
+    "bus_type": "AC Semi-Sleeper (2+2)",
+    "bus_model": "Volvo B9R Multi-Axle",
+    "from_city": "Visakhapatnam",
+    "to_city": "Hyderabad",
+    "departure_time": "19:00",
+    "arrival_time": "06:00",
+    "duration": "11h 00m",
+    "duration_minutes": 660,
+    "distance_km": 625,
+    "rating": 4.4,
+    "review_count": 1950,
+    "fare": {
+      "base": 990,
+      "tax": 50,
+      "total": 1040,
+      "currency": "INR"
+    },
+    "seats": {
+      "total": 49,
+      "available": 16,
+      "layout_type": "seater_2x2",
+      "available_seat_numbers": ["4", "7", "8", "15", "16", "23", "24", "31", "32", "39", "40", "43", "44", "47", "48", "49"],
+      "ladies_seats_available": 4
+    },
+    "boarding_points": [
+      {
+        "id": "BP-VSKP-10",
+        "name": "Dwaraka Bus Station (RTC Complex)",
+        "time": "19:00",
+        "landmark": "Platform 18",
+        "map_link": "https://maps.google.com/?q=Dwaraka+Bus+Station+RTC+Complex+Visakhapatnam"
+      },
+      {
+        "id": "BP-VSKP-11",
+        "name": "Maddilapalem",
+        "time": "19:15",
+        "landmark": "Opposite AU Campus Gate",
+        "map_link": "https://maps.google.com/?q=Maddilapalem+Bus+Stop+Visakhapatnam"
+      },
+      {
+        "id": "BP-VSKP-12",
+        "name": "Gajuwaka",
+        "time": "19:50",
+        "landmark": "Opposite High School Road",
+        "map_link": "https://maps.google.com/?q=Gajuwaka+RTC+Complex+Visakhapatnam"
+      }
+    ],
+    "dropping_points": [
+      {
+        "id": "DP-HYD-11",
+        "name": "LB Nagar",
+        "time": "05:15",
+        "landmark": "Ring Road Bus Shelter",
+        "map_link": "https://maps.google.com/?q=LB+Nagar+Ring+Road+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-12",
+        "name": "MGBS (Imlibun)",
+        "time": "05:45",
+        "landmark": "Platform 28",
+        "map_link": "https://maps.google.com/?q=Mahatma+Gandhi+Bus+Station+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-13",
+        "name": "Lakdikapul",
+        "time": "06:00",
+        "landmark": "Near Telegraph Office",
+        "map_link": "https://maps.google.com/?q=Lakdikapul+Hyderabad"
+      }
+    ],
+    "amenities": [
+      "Air Conditioning",
+      "Reclining Ergonomic Seats",
+      "USB Mobile Charging",
+      "Emergency Exit",
+      "Luggage Space",
+      "Live Tracking"
+    ],
+    "cancellation_policy": {
+      "zero_fee_cancellation_hours": 24,
+      "refund_percentage": 90,
+      "terms": "Standard APSRTC OPRS Cancellation Rules apply."
+    },
+    "status": {
+      "current_state": "ON_TIME",
+      "delay_minutes": 0,
+      "delay_reason": null,
+      "live_location": "Past Tuni Toll Gate",
+      "last_updated": "4 minutes ago"
+    },
+    "links": {
+      "official_booking_url": "https://www.apsrtconline.in",
+      "aggregator_search_url": "https://www.redbus.in/bus-tickets/visakhapatnam-to-hyderabad",
+      "operator_phone": "0866-2570005",
+      "operator_support_email": "customercare@apsrtc.ap.gov.in"
+    }
+  },
+  {
+    "id": "TBS-MSTAR-SLP-04",
+    "operator": "Morning Star Travels",
+    "service_name": "BharatBenz AC Sleeper (2+1)",
+    "operator_type": "Private",
+    "bus_type": "AC Sleeper (2+1)",
+    "bus_model": "BharatBenz 1624 Sleeper Coach",
+    "from_city": "Visakhapatnam",
+    "to_city": "Hyderabad",
+    "departure_time": "20:45",
+    "arrival_time": "07:30",
+    "duration": "10h 45m",
+    "duration_minutes": 645,
+    "distance_km": 625,
+    "rating": 4.6,
+    "review_count": 2780,
+    "fare": {
+      "base": 1280,
+      "tax": 64,
+      "total": 1344,
+      "currency": "INR"
+    },
+    "seats": {
+      "total": 36,
+      "available": 8,
+      "layout_type": "sleeper_2x1",
+      "available_seat_numbers": ["L1", "L6", "L10", "U2", "U5", "U9", "U14", "U17"],
+      "ladies_seats_available": 2
+    },
+    "boarding_points": [
+      {
+        "id": "BP-VSKP-13",
+        "name": "Morning Star Head Office, RTC Complex",
+        "time": "20:45",
+        "landmark": "Near Green Park Hotel Lane",
+        "map_link": "https://maps.google.com/?q=Morning+Star+Travels+RTC+Complex+Visakhapatnam"
+      },
+      {
+        "id": "BP-VSKP-14",
+        "name": "Gurudwara",
+        "time": "21:00",
+        "landmark": "Opposite Indian Oil Petrol Pump",
+        "map_link": "https://maps.google.com/?q=Gurudwara+Junction+Visakhapatnam"
+      },
+      {
+        "id": "BP-VSKP-15",
+        "name": "Gajuwaka",
+        "time": "21:35",
+        "landmark": "Old Gajuwaka Morning Star Office",
+        "map_link": "https://maps.google.com/?q=Gajuwaka+Morning+Star+Travels+Visakhapatnam"
+      }
+    ],
+    "dropping_points": [
+      {
+        "id": "DP-HYD-14",
+        "name": "LB Nagar",
+        "time": "06:15",
+        "landmark": "Near Sagar Ring Road",
+        "map_link": "https://maps.google.com/?q=LB+Nagar+Ring+Road+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-15",
+        "name": "Dilsukhnagar",
+        "time": "06:30",
+        "landmark": "Near Venkatadri Theatre Metro",
+        "map_link": "https://maps.google.com/?q=Dilsukhnagar+Metro+Station+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-16",
+        "name": "Ameerpet",
+        "time": "07:05",
+        "landmark": "Near Big Bazaar",
+        "map_link": "https://maps.google.com/?q=Ameerpet+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-17",
+        "name": "KPHB Colony",
+        "time": "07:25",
+        "landmark": "Road No 1 Pillar 720",
+        "map_link": "https://maps.google.com/?q=KPHB+Colony+Metro+Station+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-18",
+        "name": "Miyapur",
+        "time": "07:45",
+        "landmark": "Morning Star Office, Miyapur X Roads",
+        "map_link": "https://maps.google.com/?q=Miyapur+Cross+Roads+Hyderabad"
+      }
+    ],
+    "amenities": [
+      "Air Conditioning",
+      "Personal Charging Socket",
+      "Blanket & Pillow",
+      "Water Bottle",
+      "Live GPS Tracking",
+      "Emergency Exit",
+      "Fire Extinguisher"
+    ],
+    "cancellation_policy": {
+      "zero_fee_cancellation_hours": 12,
+      "refund_percentage": 80,
+      "terms": "80% refund up to 12 hours prior to journey."
+    },
+    "status": {
+      "current_state": "ON_TIME",
+      "delay_minutes": 0,
+      "delay_reason": null,
+      "live_location": "Passing Nakkapalli Bypass",
+      "last_updated": "2 minutes ago"
+    },
+    "links": {
+      "official_booking_url": "https://www.morningstartravels.in",
+      "aggregator_search_url": "https://www.abhibus.com/bus-ticket-booking/visakhapatnam-to-hyderabad-bus-ticket-booking.html",
+      "operator_phone": "0866-2494999",
+      "operator_support_email": "help@morningstartravels.in"
+    }
+  },
+  {
+    "id": "TBS-INTRCITY-SMT-05",
+    "operator": "IntrCity SmartBus",
+    "service_name": "IntrCity SmartBus AC Sleeper with Washroom",
+    "operator_type": "Private",
+    "bus_type": "AC Sleeper (2+1) + Toilet",
+    "bus_model": "Volvo B11R with In-Bus Washroom",
+    "from_city": "Visakhapatnam",
+    "to_city": "Hyderabad",
+    "departure_time": "21:30",
+    "arrival_time": "08:15",
+    "duration": "10h 45m",
+    "duration_minutes": 645,
+    "distance_km": 625,
+    "rating": 4.9,
+    "review_count": 3890,
+    "fare": {
+      "base": 1650,
+      "tax": 83,
+      "total": 1733,
+      "currency": "INR"
+    },
+    "seats": {
+      "total": 32,
+      "available": 6,
+      "layout_type": "sleeper_2x1",
+      "available_seat_numbers": ["L2", "L5", "U1", "U8", "U10", "U14"],
+      "ladies_seats_available": 2
+    },
+    "boarding_points": [
+      {
+        "id": "BP-VSKP-16",
+        "name": "IntrCity Lounge, RTC Complex",
+        "time": "21:30",
+        "landmark": "AC Boarding Lounge with Restroom & Wi-Fi",
+        "map_link": "https://maps.google.com/?q=IntrCity+SmartBus+Lounge+Visakhapatnam"
+      },
+      {
+        "id": "BP-VSKP-17",
+        "name": "NAD Kotha Road",
+        "time": "22:00",
+        "landmark": "Near HP Petrol Pump",
+        "map_link": "https://maps.google.com/?q=NAD+Kotha+Road+Visakhapatnam"
+      },
+      {
+        "id": "BP-VSKP-18",
+        "name": "Gajuwaka",
+        "time": "22:20",
+        "landmark": "Near Kinatla Multiplex",
+        "map_link": "https://maps.google.com/?q=Gajuwaka+Visakhapatnam"
+      }
+    ],
+    "dropping_points": [
+      {
+        "id": "DP-HYD-19",
+        "name": "LB Nagar IntrCity Lounge",
+        "time": "06:45",
+        "landmark": "Near Metro Pillar 22",
+        "map_link": "https://maps.google.com/?q=LB+Nagar+Metro+Station+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-20",
+        "name": "Lakdikapul",
+        "time": "07:20",
+        "landmark": "Near Hotel Dwaraka",
+        "map_link": "https://maps.google.com/?q=Lakdikapul+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-21",
+        "name": "Panjagutta",
+        "time": "07:35",
+        "landmark": "Near Central Mall",
+        "map_link": "https://maps.google.com/?q=Panjagutta+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-22",
+        "name": "Miyapur Lounge",
+        "time": "08:00",
+        "landmark": "Allwyn Cross Roads IntrCity Smart Lounge",
+        "map_link": "https://maps.google.com/?q=Miyapur+Cross+Roads+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-23",
+        "name": "Gachibowli",
+        "time": "08:15",
+        "landmark": "Near Biodiversity Park Flyover",
+        "map_link": "https://maps.google.com/?q=Biodiversity+Park+Gachibowli+Hyderabad"
+      }
+    ],
+    "amenities": [
+      "In-Bus Hygienic Washroom",
+      "Air Conditioning",
+      "Captain-Assisted Journey",
+      "Complimentary Snack Box",
+      "Bottled Water",
+      "High-Speed Wi-Fi",
+      "Individual LED Entertainment Screen",
+      "Fast USB & Type-C Chargers",
+      "Air Suspension Ride",
+      "Smart Lounge Access at Boarding"
+    ],
+    "cancellation_policy": {
+      "zero_fee_cancellation_hours": 6,
+      "refund_percentage": 100,
+      "terms": "Free cancellation up to 6 hours before departure with 100% refund."
+    },
+    "status": {
+      "current_state": "ON_TIME",
+      "delay_minutes": 0,
+      "delay_reason": null,
+      "live_location": "Smooth traffic on Vijayawada-Hyderabad Expressway",
+      "last_updated": "Just now"
+    },
+    "links": {
+      "official_booking_url": "https://www.intrcity.com",
+      "aggregator_search_url": "https://www.redbus.in/bus-tickets/visakhapatnam-to-hyderabad",
+      "operator_phone": "080-69277777",
+      "operator_support_email": "care@intrcity.com"
+    }
+  },
+  {
+    "id": "TBS-APSRTC-SLX-06",
+    "operator": "APSRTC",
+    "service_name": "Super Luxury Non-AC 2+2 Push Back",
+    "operator_type": "RTC",
+    "bus_type": "Non-AC Seater (2+2)",
+    "bus_model": "Ashok Leyland 12M Viking Air Suspension",
+    "from_city": "Visakhapatnam",
+    "to_city": "Hyderabad",
+    "departure_time": "18:30",
+    "arrival_time": "06:15",
+    "duration": "11h 45m",
+    "duration_minutes": 705,
+    "distance_km": 625,
+    "rating": 4.2,
+    "review_count": 3110,
+    "fare": {
+      "base": 710,
+      "tax": 35,
+      "total": 745,
+      "currency": "INR"
+    },
+    "seats": {
+      "total": 36,
+      "available": 14,
+      "layout_type": "seater_2x2",
+      "available_seat_numbers": ["3", "4", "9", "10", "15", "16", "21", "22", "27", "28", "33", "34", "35", "36"],
+      "ladies_seats_available": 4
+    },
+    "boarding_points": [
+      {
+        "id": "BP-VSKP-19",
+        "name": "Dwaraka Bus Station (RTC Complex)",
+        "time": "18:30",
+        "landmark": "Platform 14",
+        "map_link": "https://maps.google.com/?q=Dwaraka+Bus+Station+RTC+Complex+Visakhapatnam"
+      },
+      {
+        "id": "BP-VSKP-20",
+        "name": "Gajuwaka",
+        "time": "19:15",
+        "landmark": "Opposite Depot Main Gate",
+        "map_link": "https://maps.google.com/?q=Gajuwaka+RTC+Complex+Visakhapatnam"
+      }
+    ],
+    "dropping_points": [
+      {
+        "id": "DP-HYD-24",
+        "name": "Vanasthalipuram",
+        "time": "05:15",
+        "landmark": "Rythu Bazar Bus Stop",
+        "map_link": "https://maps.google.com/?q=Vanasthalipuram+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-25",
+        "name": "LB Nagar",
+        "time": "05:35",
+        "landmark": "Ring Road",
+        "map_link": "https://maps.google.com/?q=LB+Nagar+Ring+Road+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-26",
+        "name": "MGBS (Imlibun)",
+        "time": "06:15",
+        "landmark": "Arrival Platform 19",
+        "map_link": "https://maps.google.com/?q=Mahatma+Gandhi+Bus+Station+Hyderabad"
+      }
+    ],
+    "amenities": [
+      "Air Suspension Shock Absorbers",
+      "Ergonomic Pushback Seats",
+      "Emergency Exit",
+      "Spacious Overhead Racks"
+    ],
+    "cancellation_policy": {
+      "zero_fee_cancellation_hours": 24,
+      "refund_percentage": 90,
+      "terms": "Standard APSRTC Rules"
+    },
+    "status": {
+      "current_state": "ON_TIME",
+      "delay_minutes": 0,
+      "delay_reason": null,
+      "live_location": "Departed Anakapalle Bypass",
+      "last_updated": "5 minutes ago"
+    },
+    "links": {
+      "official_booking_url": "https://www.apsrtconline.in",
+      "aggregator_search_url": "https://www.redbus.in/bus-tickets/visakhapatnam-to-hyderabad",
+      "operator_phone": "0866-2570005",
+      "operator_support_email": "customercare@apsrtc.ap.gov.in"
+    }
+  },
+  {
+    "id": "TBS-VRL-VOL-07",
+    "operator": "VRL Travels",
+    "service_name": "I-Shift Multi-Axle AC Sleeper",
+    "operator_type": "Private",
+    "bus_type": "AC Sleeper (2+1)",
+    "bus_model": "Volvo B11R I-Shift Multi-Axle",
+    "from_city": "Visakhapatnam",
+    "to_city": "Hyderabad",
+    "departure_time": "20:00",
+    "arrival_time": "06:45",
+    "duration": "10h 45m",
+    "duration_minutes": 645,
+    "distance_km": 625,
+    "rating": 4.7,
+    "review_count": 3210,
+    "fare": {
+      "base": 1390,
+      "tax": 70,
+      "total": 1460,
+      "currency": "INR"
+    },
+    "seats": {
+      "total": 36,
+      "available": 7,
+      "layout_type": "sleeper_2x1",
+      "available_seat_numbers": ["L3", "L7", "L11", "U4", "U9", "U13", "U18"],
+      "ladies_seats_available": 2
+    },
+    "boarding_points": [
+      {
+        "id": "BP-VSKP-21",
+        "name": "VRL Office, RTC Complex",
+        "time": "20:00",
+        "landmark": "Near Asilmetta Junction",
+        "map_link": "https://maps.google.com/?q=VRL+Travels+RTC+Complex+Visakhapatnam"
+      },
+      {
+        "id": "BP-VSKP-22",
+        "name": "Gurudwara",
+        "time": "20:20",
+        "landmark": "Opposite City Central Mall",
+        "map_link": "https://maps.google.com/?q=Gurudwara+Junction+Visakhapatnam"
+      },
+      {
+        "id": "BP-VSKP-23",
+        "name": "NAD Kotha Road",
+        "time": "20:45",
+        "landmark": "Under Flyover Pillar 9",
+        "map_link": "https://maps.google.com/?q=NAD+Junction+Flyover+Visakhapatnam"
+      }
+    ],
+    "dropping_points": [
+      {
+        "id": "DP-HYD-27",
+        "name": "LB Nagar VRL Office",
+        "time": "05:45",
+        "landmark": "Near Ring Road Flyover",
+        "map_link": "https://maps.google.com/?q=LB+Nagar+Ring+Road+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-28",
+        "name": "Lakdikapul",
+        "time": "06:15",
+        "landmark": "Near Telephone Bhavan",
+        "map_link": "https://maps.google.com/?q=Lakdikapul+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-29",
+        "name": "Ameerpet",
+        "time": "06:30",
+        "landmark": "VRL Branch near Sarathi Studios",
+        "map_link": "https://maps.google.com/?q=Ameerpet+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-30",
+        "name": "Miyapur",
+        "time": "06:45",
+        "landmark": "Cross Roads VRL Office",
+        "map_link": "https://maps.google.com/?q=Miyapur+Cross+Roads+Hyderabad"
+      }
+    ],
+    "amenities": [
+      "Air Conditioning",
+      "Ergonomic Berth with Pillows",
+      "Water Bottle",
+      "Mobile Charging Point",
+      "Live GPS Tracking",
+      "Reading Lamp"
+    ],
+    "cancellation_policy": {
+      "zero_fee_cancellation_hours": 12,
+      "refund_percentage": 85,
+      "terms": "VRL cancellation policy"
+    },
+    "status": {
+      "current_state": "ON_TIME",
+      "delay_minutes": 0,
+      "delay_reason": null,
+      "live_location": "Cruising NH16 smoothly",
+      "last_updated": "6 minutes ago"
+    },
+    "links": {
+      "official_booking_url": "https://www.vrlbus.in",
+      "aggregator_search_url": "https://www.redbus.in/bus-tickets/visakhapatnam-to-hyderabad",
+      "operator_phone": "0836-2307300",
+      "operator_support_email": "customercare@vrllogistics.com"
+    }
+  },
+  {
+    "id": "TBS-APSRTC-AMR-RET-08",
+    "operator": "APSRTC",
+    "service_name": "Amaravati Multi-Axle Scania AC Sleeper",
+    "operator_type": "RTC",
+    "bus_type": "AC Sleeper (2+1)",
+    "bus_model": "Scania Metrolink HD 14.5M",
+    "from_city": "Hyderabad",
+    "to_city": "Visakhapatnam",
+    "departure_time": "20:00",
+    "arrival_time": "06:45",
+    "duration": "10h 45m",
+    "duration_minutes": 645,
+    "distance_km": 625,
+    "rating": 4.6,
+    "review_count": 2510,
+    "fare": {
+      "base": 1150,
+      "tax": 58,
+      "total": 1208,
+      "currency": "INR"
+    },
+    "seats": {
+      "total": 36,
+      "available": 10,
+      "layout_type": "sleeper_2x1",
+      "available_seat_numbers": ["L1", "L4", "L7", "L12", "U2", "U6", "U9", "U11", "U15", "U17"],
+      "ladies_seats_available": 3
+    },
+    "boarding_points": [
+      {
+        "id": "BP-HYD-01",
+        "name": "Miyapur Allwyn X Roads",
+        "time": "19:00",
+        "landmark": "Bus Shelter near Metro Station",
+        "map_link": "https://maps.google.com/?q=Miyapur+Metro+Station+Hyderabad"
+      },
+      {
+        "id": "BP-HYD-02",
+        "name": "KPHB Colony",
+        "time": "19:20",
+        "landmark": "Near Metro Pillar 720",
+        "map_link": "https://maps.google.com/?q=KPHB+Colony+Metro+Station+Hyderabad"
+      },
+      {
+        "id": "BP-HYD-03",
+        "name": "Ameerpet",
+        "time": "19:40",
+        "landmark": "Maitrivanam Complex",
+        "map_link": "https://maps.google.com/?q=Ameerpet+Metro+Station+Hyderabad"
+      },
+      {
+        "id": "BP-HYD-04",
+        "name": "MGBS (Imlibun)",
+        "time": "20:30",
+        "landmark": "Platform 32",
+        "map_link": "https://maps.google.com/?q=Mahatma+Gandhi+Bus+Station+Hyderabad"
+      },
+      {
+        "id": "BP-HYD-05",
+        "name": "LB Nagar Ring Road",
+        "time": "21:15",
+        "landmark": "Under Metro Station Pillar 12",
+        "map_link": "https://maps.google.com/?q=LB+Nagar+Metro+Station+Hyderabad"
+      }
+    ],
+    "dropping_points": [
+      {
+        "id": "DP-VSKP-01",
+        "name": "Anakapalle Toll Plaza",
+        "time": "05:15",
+        "landmark": "NH16 Junction",
+        "map_link": "https://maps.google.com/?q=Anakapalle+Bypass+Toll+Plaza"
+      },
+      {
+        "id": "DP-VSKP-02",
+        "name": "Gajuwaka",
+        "time": "05:45",
+        "landmark": "Opposite RTC Depot Gate",
+        "map_link": "https://maps.google.com/?q=Gajuwaka+RTC+Depot+Visakhapatnam"
+      },
+      {
+        "id": "DP-VSKP-03",
+        "name": "NAD Junction",
+        "time": "06:05",
+        "landmark": "Under Flyover Pillar 12",
+        "map_link": "https://maps.google.com/?q=NAD+Junction+Flyover+Visakhapatnam"
+      },
+      {
+        "id": "DP-VSKP-04",
+        "name": "Gurudwara Junction",
+        "time": "06:25",
+        "landmark": "Opposite TSR Complex",
+        "map_link": "https://maps.google.com/?q=Gurudwara+Junction+Visakhapatnam"
+      },
+      {
+        "id": "DP-VSKP-05",
+        "name": "Dwaraka Bus Station (RTC Complex)",
+        "time": "06:45",
+        "landmark": "Main Arrival Bay Platform 1",
+        "map_link": "https://maps.google.com/?q=Dwaraka+Bus+Station+RTC+Complex+Visakhapatnam"
+      }
+    ],
+    "amenities": [
+      "Air Conditioning",
+      "Blanket & Pillow",
+      "USB Charging Ports",
+      "Live GPS Tracking",
+      "Emergency Exit",
+      "Luggage Space"
+    ],
+    "cancellation_policy": {
+      "zero_fee_cancellation_hours": 24,
+      "refund_percentage": 90,
+      "terms": "Standard APSRTC OPRS Rules"
+    },
+    "status": {
+      "current_state": "ON_TIME",
+      "delay_minutes": 0,
+      "delay_reason": null,
+      "live_location": "En route - Suryapet Toll Plaza",
+      "last_updated": "2 minutes ago"
+    },
+    "links": {
+      "official_booking_url": "https://www.apsrtconline.in",
+      "aggregator_search_url": "https://www.redbus.in/bus-tickets/hyderabad-to-visakhapatnam",
+      "operator_phone": "0866-2570005",
+      "operator_support_email": "customercare@apsrtc.ap.gov.in"
+    }
+  },
+  {
+    "id": "TBS-ORANGE-V96-RET-09",
+    "operator": "Orange Travels",
+    "service_name": "Volvo 9600 B11R Luxury Sleeper (2+1)",
+    "operator_type": "Private",
+    "bus_type": "AC Sleeper (2+1)",
+    "bus_model": "Volvo 9600 Multi-Axle 15M Euro-VI",
+    "from_city": "Hyderabad",
+    "to_city": "Visakhapatnam",
+    "departure_time": "21:00",
+    "arrival_time": "07:30",
+    "duration": "10h 30m",
+    "duration_minutes": 630,
+    "distance_km": 625,
+    "rating": 4.8,
+    "review_count": 3950,
+    "fare": {
+      "base": 1450,
+      "tax": 73,
+      "total": 1523,
+      "currency": "INR"
+    },
+    "seats": {
+      "total": 36,
+      "available": 4,
+      "layout_type": "sleeper_2x1",
+      "available_seat_numbers": ["L2", "L9", "U3", "U12"],
+      "ladies_seats_available": 1
+    },
+    "boarding_points": [
+      {
+        "id": "BP-HYD-06",
+        "name": "Gachibowli Outer Ring Road",
+        "time": "19:30",
+        "landmark": "Near Telecom Nagar Bus Shelter",
+        "map_link": "https://maps.google.com/?q=Gachibowli+Junction+Hyderabad"
+      },
+      {
+        "id": "BP-HYD-07",
+        "name": "Miyapur Cross Roads",
+        "time": "20:00",
+        "landmark": "Orange Lounge, Allwyn X Roads",
+        "map_link": "https://maps.google.com/?q=Miyapur+Cross+Roads+Hyderabad"
+      },
+      {
+        "id": "BP-HYD-08",
+        "name": "KPHB Colony",
+        "time": "20:20",
+        "landmark": "Near Metro Pillar 722",
+        "map_link": "https://maps.google.com/?q=KPHB+Colony+Metro+Station+Hyderabad"
+      },
+      {
+        "id": "BP-HYD-09",
+        "name": "Ameerpet",
+        "time": "20:45",
+        "landmark": "Opposite RS Brothers",
+        "map_link": "https://maps.google.com/?q=Ameerpet+Hyderabad"
+      },
+      {
+        "id": "BP-HYD-10",
+        "name": "LB Nagar Orange Travels",
+        "time": "21:40",
+        "landmark": "Opposite Big Bazaar Ring Road",
+        "map_link": "https://maps.google.com/?q=LB+Nagar+Ring+Road+Hyderabad"
+      }
+    ],
+    "dropping_points": [
+      {
+        "id": "DP-VSKP-06",
+        "name": "Anakapalle By-pass",
+        "time": "05:45",
+        "landmark": "Near Toll Gate",
+        "map_link": "https://maps.google.com/?q=Anakapalle+Bypass+Toll+Plaza"
+      },
+      {
+        "id": "DP-VSKP-07",
+        "name": "Gajuwaka Orange Office",
+        "time": "06:15",
+        "landmark": "Opposite High School Road",
+        "map_link": "https://maps.google.com/?q=Gajuwaka+Orange+Travels+Visakhapatnam"
+      },
+      {
+        "id": "DP-VSKP-08",
+        "name": "NAD Junction",
+        "time": "06:40",
+        "landmark": "Flyover Pillar 14",
+        "map_link": "https://maps.google.com/?q=NAD+Junction+Flyover+Visakhapatnam"
+      },
+      {
+        "id": "DP-VSKP-09",
+        "name": "RTC Complex Orange Office",
+        "time": "07:30",
+        "landmark": "Beside Diamond Park",
+        "map_link": "https://maps.google.com/?q=Orange+Tours+and+Travels+Visakhapatnam+RTC+Complex"
+      }
+    ],
+    "amenities": [
+      "Air Conditioning",
+      "Individual LED Screen",
+      "Mineral Water Bottle",
+      "Blanket & Pillow",
+      "Fast Type-C Charging Socket",
+      "High-Speed Wi-Fi",
+      "GPS Live Telemetry",
+      "Emergency SOS Alarm"
+    ],
+    "cancellation_policy": {
+      "zero_fee_cancellation_hours": 12,
+      "refund_percentage": 85,
+      "terms": "85% refund > 12 hours before departure."
+    },
+    "status": {
+      "current_state": "ON_TIME",
+      "delay_minutes": 0,
+      "delay_reason": null,
+      "live_location": "Cruising smoothly near Vijayawada Bypass",
+      "last_updated": "Just now"
+    },
+    "links": {
+      "official_booking_url": "https://www.orangetravels.in",
+      "aggregator_search_url": "https://www.redbus.in/bus-tickets/hyderabad-to-visakhapatnam",
+      "operator_phone": "040-33559999",
+      "operator_support_email": "support@orangetravels.in"
+    }
+  },
+  {
+    "id": "TBS-APSRTC-AMR-BZA-10",
+    "operator": "APSRTC",
+    "service_name": "Amaravati Multi-Axle AC Sleeper",
+    "operator_type": "RTC",
+    "bus_type": "AC Sleeper (2+1)",
+    "bus_model": "Volvo B11R Multi-Axle",
+    "from_city": "Vijayawada",
+    "to_city": "Hyderabad",
+    "departure_time": "23:00",
+    "arrival_time": "05:00",
+    "duration": "06h 00m",
+    "duration_minutes": 360,
+    "distance_km": 275,
+    "rating": 4.6,
+    "review_count": 3410,
+    "fare": {
+      "base": 680,
+      "tax": 34,
+      "total": 714,
+      "currency": "INR"
+    },
+    "seats": {
+      "total": 36,
+      "available": 12,
+      "layout_type": "sleeper_2x1",
+      "available_seat_numbers": ["L1", "L3", "L8", "L10", "U2", "U4", "U7", "U9", "U12", "U14", "U16", "U18"],
+      "ladies_seats_available": 3
+    },
+    "boarding_points": [
+      {
+        "id": "BP-BZA-01",
+        "name": "Pandit Nehru Bus Station (PNBS)",
+        "time": "23:00",
+        "landmark": "Platform 42, Central Block",
+        "map_link": "https://maps.google.com/?q=Pandit+Nehru+Bus+Station+Vijayawada"
+      },
+      {
+        "id": "BP-BZA-02",
+        "name": "Varadhi Junction",
+        "time": "23:15",
+        "landmark": "Near Krishna River Bridge Toll",
+        "map_link": "https://maps.google.com/?q=Varadhi+Junction+Vijayawada"
+      },
+      {
+        "id": "BP-BZA-03",
+        "name": "Gollapudi Bypass",
+        "time": "23:35",
+        "landmark": "Near One Center Circle",
+        "map_link": "https://maps.google.com/?q=Gollapudi+Bypass+Vijayawada"
+      }
+    ],
+    "dropping_points": [
+      {
+        "id": "DP-HYD-31",
+        "name": "LB Nagar Ring Road",
+        "time": "04:15",
+        "landmark": "Under Metro Station",
+        "map_link": "https://maps.google.com/?q=LB+Nagar+Metro+Station+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-32",
+        "name": "MGBS (Imlibun)",
+        "time": "04:45",
+        "landmark": "Arrival Bay 21",
+        "map_link": "https://maps.google.com/?q=Mahatma+Gandhi+Bus+Station+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-33",
+        "name": "Ameerpet",
+        "time": "05:00",
+        "landmark": "Maitrivanam",
+        "map_link": "https://maps.google.com/?q=Ameerpet+Metro+Station+Hyderabad"
+      }
+    ],
+    "amenities": [
+      "Air Conditioning",
+      "Blanket & Pillow",
+      "USB Charging Ports",
+      "Live GPS Tracking",
+      "Emergency Exit"
+    ],
+    "cancellation_policy": {
+      "zero_fee_cancellation_hours": 24,
+      "refund_percentage": 90,
+      "terms": "Standard APSRTC Cancellation Rules apply."
+    },
+    "status": {
+      "current_state": "ON_TIME",
+      "delay_minutes": 0,
+      "delay_reason": null,
+      "live_location": "Expressway Toll Suryapet",
+      "last_updated": "5 minutes ago"
+    },
+    "links": {
+      "official_booking_url": "https://www.apsrtconline.in",
+      "aggregator_search_url": "https://www.redbus.in/bus-tickets/vijayawada-to-hyderabad",
+      "operator_phone": "0866-2570005",
+      "operator_support_email": "customercare@apsrtc.ap.gov.in"
+    }
+  },
+  {
+    "id": "TBS-KVR-BZA-11",
+    "operator": "Kaveri Travels",
+    "service_name": "BharatBenz AC Sleeper (2+1)",
+    "operator_type": "Private",
+    "bus_type": "AC Sleeper (2+1)",
+    "bus_model": "BharatBenz 1624 Sleeper Coach",
+    "from_city": "Vijayawada",
+    "to_city": "Hyderabad",
+    "departure_time": "23:45",
+    "arrival_time": "05:30",
+    "duration": "05h 45m",
+    "duration_minutes": 345,
+    "distance_km": 275,
+    "rating": 4.5,
+    "review_count": 1820,
+    "fare": {
+      "base": 790,
+      "tax": 40,
+      "total": 830,
+      "currency": "INR"
+    },
+    "seats": {
+      "total": 36,
+      "available": 9,
+      "layout_type": "sleeper_2x1",
+      "available_seat_numbers": ["L2", "L5", "L9", "U1", "U4", "U8", "U11", "U15", "U17"],
+      "ladies_seats_available": 2
+    },
+    "boarding_points": [
+      {
+        "id": "BP-BZA-04",
+        "name": "Kaveri Travels, Old RTC Bus Stand",
+        "time": "23:45",
+        "landmark": "Near Hanuman Temple",
+        "map_link": "https://maps.google.com/?q=Old+RTC+Bus+Stand+Vijayawada"
+      },
+      {
+        "id": "BP-BZA-05",
+        "name": "Bhavanipuram",
+        "time": "00:05",
+        "landmark": "Near Swathi Theatre",
+        "map_link": "https://maps.google.com/?q=Bhavanipuram+Vijayawada"
+      }
+    ],
+    "dropping_points": [
+      {
+        "id": "DP-HYD-34",
+        "name": "LB Nagar",
+        "time": "04:45",
+        "landmark": "Ring Road",
+        "map_link": "https://maps.google.com/?q=LB+Nagar+Ring+Road+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-35",
+        "name": "Ameerpet",
+        "time": "05:15",
+        "landmark": "Near Big Bazaar",
+        "map_link": "https://maps.google.com/?q=Ameerpet+Hyderabad"
+      },
+      {
+        "id": "DP-HYD-36",
+        "name": "Miyapur Cross Roads",
+        "time": "05:30",
+        "landmark": "Near Allwyn X Roads",
+        "map_link": "https://maps.google.com/?q=Miyapur+Cross+Roads+Hyderabad"
+      }
+    ],
+    "amenities": [
+      "Air Conditioning",
+      "Charging Sockets",
+      "Water Bottle",
+      "Live GPS Tracking",
+      "Blanket"
+    ],
+    "cancellation_policy": {
+      "zero_fee_cancellation_hours": 12,
+      "refund_percentage": 80,
+      "terms": "Standard Kaveri Travels policy"
+    },
+    "status": {
+      "current_state": "ON_TIME",
+      "delay_minutes": 0,
+      "delay_reason": null,
+      "live_location": "Crossing Nandigama Bypass",
+      "last_updated": "4 minutes ago"
+    },
+    "links": {
+      "official_booking_url": "https://www.kaveritravels.in",
+      "aggregator_search_url": "https://www.abhibus.com/bus-ticket-booking/vijayawada-to-hyderabad-bus-ticket-booking.html",
+      "operator_phone": "0866-6667777",
+      "operator_support_email": "customercare@kaveritravels.in"
+    }
+  },
+  {
+    "id": "TBS-KSRTC-EVX-BLR-12",
+    "operator": "KSRTC",
+    "service_name": "Flybus / EV Power Plus AC Sleeper",
+    "operator_type": "RTC",
+    "bus_type": "AC Sleeper (2+1)",
+    "bus_model": "Volvo 9600 Multi-Axle",
+    "from_city": "Hyderabad",
+    "to_city": "Bengaluru",
+    "departure_time": "21:30",
+    "arrival_time": "06:30",
+    "duration": "09h 00m",
+    "duration_minutes": 540,
+    "distance_km": 570,
+    "rating": 4.7,
+    "review_count": 4890,
+    "fare": {
+      "base": 1290,
+      "tax": 65,
+      "total": 1355,
+      "currency": "INR"
+    },
+    "seats": {
+      "total": 36,
+      "available": 8,
+      "layout_type": "sleeper_2x1",
+      "available_seat_numbers": ["L2", "L6", "L10", "U1", "U5", "U8", "U12", "U15"],
+      "ladies_seats_available": 2
+    },
+    "boarding_points": [
+      {
+        "id": "BP-HYD-11",
+        "name": "MGBS (Imlibun)",
+        "time": "21:30",
+        "landmark": "Platform 11, Interstate Bay",
+        "map_link": "https://maps.google.com/?q=Mahatma+Gandhi+Bus+Station+Hyderabad"
+      },
+      {
+        "id": "BP-HYD-12",
+        "name": "Afzalgunj",
+        "time": "21:45",
+        "landmark": "Near State Central Library",
+        "map_link": "https://maps.google.com/?q=Afzalgunj+Hyderabad"
+      },
+      {
+        "id": "BP-HYD-13",
+        "name": "Shamshabad Airport Exit ORR",
+        "time": "22:25",
+        "landmark": "Near Rajiv Gandhi International Airport Flyover Exit",
+        "map_link": "https://maps.google.com/?q=Shamshabad+Toll+Plaza+Hyderabad"
+      }
+    ],
+    "dropping_points": [
+      {
+        "id": "DP-BLR-01",
+        "name": "Hebbal Flyover",
+        "time": "05:30",
+        "landmark": "Below Esteem Mall Flyover",
+        "map_link": "https://maps.google.com/?q=Hebbal+Flyover+Bengaluru"
+      },
+      {
+        "id": "DP-BLR-02",
+        "name": "Yelahanka",
+        "time": "05:45",
+        "landmark": "Near Police Station",
+        "map_link": "https://maps.google.com/?q=Yelahanka+Bengaluru"
+      },
+      {
+        "id": "DP-BLR-03",
+        "name": "Majestic (Kempegowda Bus Station)",
+        "time": "06:15",
+        "landmark": "Terminal 1, Inter-state Bay",
+        "map_link": "https://maps.google.com/?q=Kempegowda+Bus+Station+Majestic+Bengaluru"
+      },
+      {
+        "id": "DP-BLR-04",
+        "name": "Shantinagar Bus Station",
+        "time": "06:30",
+        "landmark": "KSRTC Satellite Depot",
+        "map_link": "https://maps.google.com/?q=Shantinagar+Bus+Station+Bengaluru"
+      }
+    ],
+    "amenities": [
+      "Air Conditioning",
+      "Blanket & Pillow",
+      "USB Fast Charging Ports",
+      "Live GPS Tracking",
+      "Emergency Exit",
+      "Luggage Tracking RFID"
+    ],
+    "cancellation_policy": {
+      "zero_fee_cancellation_hours": 24,
+      "refund_percentage": 90,
+      "terms": "KSRTC Awatar online booking cancellation guidelines apply."
+    },
+    "status": {
+      "current_state": "ON_TIME",
+      "delay_minutes": 0,
+      "delay_reason": null,
+      "live_location": "Crossing Kurnool Highway NH44",
+      "last_updated": "2 minutes ago"
+    },
+    "links": {
+      "official_booking_url": "https://www.ksrtc.in",
+      "aggregator_search_url": "https://www.redbus.in/bus-tickets/hyderabad-to-bangalore",
+      "operator_phone": "080-49596666",
+      "operator_support_email": "contact@ksrtc.in"
+    }
+  },
+  {
+    "id": "TBS-ORANGE-BLR-13",
+    "operator": "Orange Travels",
+    "service_name": "Volvo 9600 AC Sleeper (2+1)",
+    "operator_type": "Private",
+    "bus_type": "AC Sleeper (2+1)",
+    "bus_model": "Volvo 9600 Multi-Axle 15M",
+    "from_city": "Hyderabad",
+    "to_city": "Bengaluru",
+    "departure_time": "22:00",
+    "arrival_time": "06:45",
+    "duration": "08h 45m",
+    "duration_minutes": 525,
+    "distance_km": 570,
+    "rating": 4.8,
+    "review_count": 5120,
+    "fare": {
+      "base": 1550,
+      "tax": 78,
+      "total": 1628,
+      "currency": "INR"
+    },
+    "seats": {
+      "total": 36,
+      "available": 5,
+      "layout_type": "sleeper_2x1",
+      "available_seat_numbers": ["L3", "L9", "U2", "U8", "U14"],
+      "ladies_seats_available": 1
+    },
+    "boarding_points": [
+      {
+        "id": "BP-HYD-14",
+        "name": "Kukatpally Y Junction",
+        "time": "20:30",
+        "landmark": "Near Metro Pillar 812",
+        "map_link": "https://maps.google.com/?q=Kukatpally+Y+Junction+Hyderabad"
+      },
+      {
+        "id": "BP-HYD-15",
+        "name": "Ameerpet",
+        "time": "21:00",
+        "landmark": "Opposite RS Brothers",
+        "map_link": "https://maps.google.com/?q=Ameerpet+Hyderabad"
+      },
+      {
+        "id": "BP-HYD-16",
+        "name": "Gachibowli Outer Ring Road",
+        "time": "21:40",
+        "landmark": "Telecom Nagar Bus Stand",
+        "map_link": "https://maps.google.com/?q=Gachibowli+Junction+Hyderabad"
+      },
+      {
+        "id": "BP-HYD-17",
+        "name": "Shamshabad Airport Toll Plaza",
+        "time": "22:30",
+        "landmark": "Below Flyover",
+        "map_link": "https://maps.google.com/?q=Shamshabad+Toll+Plaza+Hyderabad"
+      }
+    ],
+    "dropping_points": [
+      {
+        "id": "DP-BLR-05",
+        "name": "Hebbal",
+        "time": "05:45",
+        "landmark": "Near Esteem Mall",
+        "map_link": "https://maps.google.com/?q=Hebbal+Flyover+Bengaluru"
+      },
+      {
+        "id": "DP-BLR-06",
+        "name": "Anand Rao Circle (Majestic)",
+        "time": "06:15",
+        "landmark": "Orange Office near Race Course Road",
+        "map_link": "https://maps.google.com/?q=Anand+Rao+Circle+Bengaluru"
+      },
+      {
+        "id": "DP-BLR-07",
+        "name": "Madiwala",
+        "time": "06:45",
+        "landmark": "Near St Johns Hospital Signal",
+        "map_link": "https://maps.google.com/?q=Madiwala+Signal+Bengaluru"
+      },
+      {
+        "id": "DP-BLR-08",
+        "name": "Electronic City Toll Gate",
+        "time": "07:15",
+        "landmark": "Below Elevated Toll Highway",
+        "map_link": "https://maps.google.com/?q=Electronic+City+Toll+Gate+Bengaluru"
+      }
+    ],
+    "amenities": [
+      "Air Conditioning",
+      "Personal LED TV Screen",
+      "Packaged Drinking Water",
+      "Blanket & Pillow",
+      "Type-C USB Fast Charger",
+      "Live GPS Tracking",
+      "Emergency Window Hammer"
+    ],
+    "cancellation_policy": {
+      "zero_fee_cancellation_hours": 12,
+      "refund_percentage": 85,
+      "terms": "85% refund > 12 hours before departure."
+    },
+    "status": {
+      "current_state": "ON_TIME",
+      "delay_minutes": 0,
+      "delay_reason": null,
+      "live_location": "Cruising NH44 Expressway near Anantapur",
+      "last_updated": "3 minutes ago"
+    },
+    "links": {
+      "official_booking_url": "https://www.orangetravels.in",
+      "aggregator_search_url": "https://www.redbus.in/bus-tickets/hyderabad-to-bangalore",
+      "operator_phone": "040-33559999",
+      "operator_support_email": "support@orangetravels.in"
+    }
+  },
+  {
+    "id": "TBS-APSRTC-AMR-VJA-VSKP-14",
+    "operator": "APSRTC",
+    "service_name": "Amaravati Multi-Axle Scania AC Sleeper",
+    "operator_type": "RTC",
+    "bus_type": "AC Sleeper (2+1)",
+    "bus_model": "Scania Metrolink HD",
+    "from_city": "Vijayawada",
+    "to_city": "Visakhapatnam",
+    "departure_time": "22:30",
+    "arrival_time": "05:15",
+    "duration": "06h 45m",
+    "duration_minutes": 405,
+    "distance_km": 350,
+    "rating": 4.5,
+    "review_count": 2190,
+    "fare": {
+      "base": 850,
+      "tax": 43,
+      "total": 893,
+      "currency": "INR"
+    },
+    "seats": {
+      "total": 36,
+      "available": 11,
+      "layout_type": "sleeper_2x1",
+      "available_seat_numbers": ["L1", "L4", "L7", "L10", "U2", "U5", "U8", "U11", "U13", "U15", "U17"],
+      "ladies_seats_available": 3
+    },
+    "boarding_points": [
+      {
+        "id": "BP-BZA-06",
+        "name": "Pandit Nehru Bus Station (PNBS)",
+        "time": "22:30",
+        "landmark": "Platform 38",
+        "map_link": "https://maps.google.com/?q=Pandit+Nehru+Bus+Station+Vijayawada"
+      },
+      {
+        "id": "BP-BZA-07",
+        "name": "Ramavarappadu Ring",
+        "time": "22:50",
+        "landmark": "NH16 Junction Bus Bay",
+        "map_link": "https://maps.google.com/?q=Ramavarappadu+Ring+Vijayawada"
+      },
+      {
+        "id": "BP-BZA-08",
+        "name": "Gannavaram Airport Road",
+        "time": "23:10",
+        "landmark": "Opposite Airport Main Gate",
+        "map_link": "https://maps.google.com/?q=Vijayawada+Airport+Gannavaram"
+      }
+    ],
+    "dropping_points": [
+      {
+        "id": "DP-VSKP-10",
+        "name": "Anakapalle Bypass",
+        "time": "04:15",
+        "landmark": "Toll Plaza Entry",
+        "map_link": "https://maps.google.com/?q=Anakapalle+Bypass+Toll+Plaza"
+      },
+      {
+        "id": "DP-VSKP-11",
+        "name": "Gajuwaka RTC Depot",
+        "time": "04:40",
+        "landmark": "Opposite High School Road",
+        "map_link": "https://maps.google.com/?q=Gajuwaka+RTC+Depot+Visakhapatnam"
+      },
+      {
+        "id": "DP-VSKP-12",
+        "name": "NAD Junction",
+        "time": "04:55",
+        "landmark": "Flyover Pillar 12",
+        "map_link": "https://maps.google.com/?q=NAD+Junction+Flyover+Visakhapatnam"
+      },
+      {
+        "id": "DP-VSKP-13",
+        "name": "Dwaraka Bus Station (RTC Complex)",
+        "time": "05:15",
+        "landmark": "Arrival Bay 1",
+        "map_link": "https://maps.google.com/?q=Dwaraka+Bus+Station+RTC+Complex+Visakhapatnam"
+      }
+    ],
+    "amenities": [
+      "Air Conditioning",
+      "Blanket & Pillow",
+      "USB Charging Ports",
+      "Emergency Exit",
+      "Live GPS Tracking"
+    ],
+    "cancellation_policy": {
+      "zero_fee_cancellation_hours": 24,
+      "refund_percentage": 90,
+      "terms": "APSRTC Online portal cancellation terms"
+    },
+    "status": {
+      "current_state": "ON_TIME",
+      "delay_minutes": 0,
+      "delay_reason": null,
+      "live_location": "Cruising NH16 near Rajahmundry",
+      "last_updated": "5 minutes ago"
+    },
+    "links": {
+      "official_booking_url": "https://www.apsrtconline.in",
+      "aggregator_search_url": "https://www.redbus.in/bus-tickets/vijayawada-to-visakhapatnam",
+      "operator_phone": "0866-2570005",
+      "operator_support_email": "customercare@apsrtc.ap.gov.in"
+    }
+  },
+  {
+    "id": "TBS-APSRTC-AMR-TPT-BLR-15",
+    "operator": "APSRTC",
+    "service_name": "Amaravati Multi-Axle AC Sleeper",
+    "operator_type": "RTC",
+    "bus_type": "AC Sleeper (2+1)",
+    "bus_model": "Volvo B11R Multi-Axle",
+    "from_city": "Tirupati",
+    "to_city": "Bengaluru",
+    "departure_time": "23:00",
+    "arrival_time": "04:30",
+    "duration": "05h 30m",
+    "duration_minutes": 330,
+    "distance_km": 250,
+    "rating": 4.6,
+    "review_count": 2740,
+    "fare": {
+      "base": 650,
+      "tax": 33,
+      "total": 683,
+      "currency": "INR"
+    },
+    "seats": {
+      "total": 36,
+      "available": 14,
+      "layout_type": "sleeper_2x1",
+      "available_seat_numbers": ["L1", "L3", "L7", "L11", "U1", "U4", "U6", "U9", "U12", "U14", "U16", "U18"],
+      "ladies_seats_available": 3
+    },
+    "boarding_points": [
+      {
+        "id": "BP-TPT-01",
+        "name": "Tirupati Central Bus Station (CBS)",
+        "time": "23:00",
+        "landmark": "Platform 1, Interstate Bay",
+        "map_link": "https://maps.google.com/?q=Tirupati+Central+Bus+Station"
+      },
+      {
+        "id": "BP-TPT-02",
+        "name": "Alipiri Toll Gate",
+        "time": "23:15",
+        "landmark": "Near Garuda Circle",
+        "map_link": "https://maps.google.com/?q=Alipiri+Tirupati"
+      },
+      {
+        "id": "BP-TPT-03",
+        "name": "Chandragiri Bypass",
+        "time": "23:30",
+        "landmark": "NH140 Cross Road",
+        "map_link": "https://maps.google.com/?q=Chandragiri+Bypass+Tirupati"
+      }
+    ],
+    "dropping_points": [
+      {
+        "id": "DP-BLR-09",
+        "name": "KR Puram Railway Station",
+        "time": "03:45",
+        "landmark": "Below Hanging Bridge",
+        "map_link": "https://maps.google.com/?q=KR+Puram+Railway+Station+Bengaluru"
+      },
+      {
+        "id": "DP-BLR-10",
+        "name": "Tin Factory Bus Stop",
+        "time": "04:00",
+        "landmark": "Near Skywalk",
+        "map_link": "https://maps.google.com/?q=Tin+Factory+Bengaluru"
+      },
+      {
+        "id": "DP-BLR-11",
+        "name": "Kempegowda Bus Station (Majestic)",
+        "time": "04:30",
+        "landmark": "Platform 18, Terminal 1",
+        "map_link": "https://maps.google.com/?q=Kempegowda+Bus+Station+Majestic+Bengaluru"
+      }
+    ],
+    "amenities": [
+      "Air Conditioning",
+      "Blanket & Pillow",
+      "USB Charging Ports",
+      "Live GPS Tracking",
+      "Emergency Exit"
+    ],
+    "cancellation_policy": {
+      "zero_fee_cancellation_hours": 24,
+      "refund_percentage": 90,
+      "terms": "APSRTC Online portal rules"
+    },
+    "status": {
+      "current_state": "ON_TIME",
+      "delay_minutes": 0,
+      "delay_reason": null,
+      "live_location": "Crossing Chittoor Bypass",
+      "last_updated": "Just now"
+    },
+    "links": {
+      "official_booking_url": "https://www.apsrtconline.in",
+      "aggregator_search_url": "https://www.redbus.in/bus-tickets/tirupati-to-bangalore",
+      "operator_phone": "0866-2570005",
+      "operator_support_email": "customercare@apsrtc.ap.gov.in"
+    }
+  }
+]
