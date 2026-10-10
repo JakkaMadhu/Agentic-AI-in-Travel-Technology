@@ -17,6 +17,7 @@ ENV/
 .vscode/
 *.swp
 *.sqlite3
+*.db
 
 # Testing
 .pytest_cache/

@@ -65,7 +65,7 @@ if __name__ == "__main__":
         print(f"[{i}] {bus['operator']} - {bus['service_name']}")
         print(f"    Type: {bus['bus_type']} | Model: {bus['bus_model']}")
         print(f"    Timings: {bus['departure_time']} (Vizag) -> {bus['arrival_time']} (Hyd) | Duration: {bus['duration']}")
-        print(f"    Fare: ₹{bus['fare']['total']} (Base ₹{bus['fare']['base']} + Tax ₹{bus['fare']['tax']})")
+        print(f"    Fare: INR {bus['fare']['total']} (Base INR {bus['fare']['base']} + Tax INR {bus['fare']['tax']})")
         print(f"    Available Seats: {bus['seats']['available']} seats (Ladies: {bus['seats']['ladies_seats_available']})")
         print(f"    Boarding Stop 1: {bus['boarding_points'][0]['name']} at {bus['boarding_points'][0]['time']}")
         print(f"    GPS Boarding Link: {bus['boarding_points'][0]['map_link']}")

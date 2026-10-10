@@ -12,7 +12,9 @@ def bus_search_node(state: TravelPlanState) -> Dict[str, Any]:
     )
     
     selected = candidates[0] if candidates else None
+    alternatives = candidates[1:] if len(candidates) > 1 else []
     return {
         "bus_candidates": candidates,
-        "selected_bus": selected
+        "selected_bus": selected,
+        "alternative_buses": alternatives
     }

@@ -18,7 +18,13 @@ class Settings(BaseSettings):
     RAPIDAPI_HOST: str = "booking-com15.p.rapidapi.com"
 
     # Datasets
-    BUSES_DATA_PATH: str = str(BASE_DIR.parent / "data" / "buses.json")
+    BUSES_DATA_PATH: str = str(BASE_DIR / "data" / "buses.json")
+
+    # JWT Authentication
+    JWT_SECRET_KEY: str = "traveltech_secret_jwt_key_change_in_production_32bytes"
+    JWT_ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 15
+    REFRESH_TOKEN_EXPIRE_DAYS: int = 7
 
     class Config:
         env_file = str(BASE_DIR / ".env")

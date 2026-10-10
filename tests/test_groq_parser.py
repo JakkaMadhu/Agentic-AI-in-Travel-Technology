@@ -6,6 +6,7 @@ Project: AgenticTravelTech (TBS RoamAgent)
 
 import json
 import os
+import sys
 import urllib.request
 import env_loader
 
@@ -70,11 +71,12 @@ if __name__ == "__main__":
         print("Get your free key in 30 seconds at: https://console.groq.com/keys\n")
     else:
         for q in test_queries:
-            print(f'\nParsing Query: "{q}"')
+            safe_q = q.encode(sys.stdout.encoding or "utf-8", errors="replace").decode(sys.stdout.encoding or "utf-8")
+            print(f'\nParsing Query: "{safe_q}"')
             try:
                 extracted = parse_travel_intent(q, GROQ_API_KEY)
                 print("Extracted Parameters:")
-                print(json.dumps(extracted, indent=2, ensure_ascii=False))
+                print(json.dumps(extracted, indent=2))
             except Exception as e:
                 print(f"Error: {e}")
             print("-" * 65)

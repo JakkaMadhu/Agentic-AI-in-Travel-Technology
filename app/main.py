@@ -39,4 +39,9 @@ def health_check():
         "database_connected": db_connected
     }
 
-# Routes will be registered here once created
+# Register route modules
+from app.routes.auth import router as auth_router
+from app.routes.trip import router as trip_router
+
+app.include_router(auth_router)
+app.include_router(trip_router)

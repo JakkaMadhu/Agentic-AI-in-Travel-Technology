@@ -11,7 +11,9 @@ def hotel_search_node(state: TravelPlanState) -> Dict[str, Any]:
     )
 
     selected = hotels[0] if hotels else None
+    alternatives = hotels[1:] if len(hotels) > 1 else []
     return {
         "hotel_candidates": hotels,
-        "selected_hotel": selected
+        "selected_hotel": selected,
+        "alternative_hotels": alternatives
     }
