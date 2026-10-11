@@ -41,7 +41,19 @@ app.add_middleware(
 @app.get("/health")
 def health_check():
     """Service health and database status probe."""
-    db_connected = not db.is_closed()
+    db_connected = False
+    try:
+        if db.is_closed():
+            db.connect(reuse_if_open=True)
+        db.execute_sql("SELECT 1;")
+        db_connected = True
+    except Exception as e:
+        print(f"[Health Check DB Probe Error]: {e}")
+        db_connected = False
+    finally:
+        if not db.is_closed():
+            db.close()
+
     return {
         "status": "healthy",
         "database_connected": db_connected
