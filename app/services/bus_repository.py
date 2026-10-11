@@ -5,11 +5,17 @@ from typing import List, Dict, Any, Optional
 from app.config import settings
 
 def load_bus_schedules() -> List[Dict[str, Any]]:
-    """Load local bus timetable dataset."""
-    if not os.path.exists(settings.BUSES_DATA_PATH):
-        return []
+    """Load local bus timetable dataset with resilient path resolution."""
+    path = settings.BUSES_DATA_PATH
+    if not os.path.exists(path):
+        # Fallback to repository root data/buses.json
+        base_fallback = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "data", "buses.json"))
+        if os.path.exists(base_fallback):
+            path = base_fallback
+        else:
+            return []
     try:
-        with open(settings.BUSES_DATA_PATH, "r", encoding="utf-8") as f:
+        with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
     except Exception:
         return []
