@@ -5,17 +5,23 @@ class TravelPlanState(TypedDict):
     from_city: str
     to_city: str
     travel_date: Optional[str]
+    duration_days: Optional[int]
     passengers: int
     bus_type: Optional[str]
     arrival_deadline: Optional[str]
     transit_budget: Optional[float]
     hotel_budget: Optional[float]
     currency: str
+    return_bus_required: Optional[bool]
 
     # Candidates and selections
     bus_candidates: List[Dict[str, Any]]
     selected_bus: Optional[Dict[str, Any]]
     alternative_buses: List[Dict[str, Any]]
+
+    return_bus_candidates: List[Dict[str, Any]]
+    selected_return_bus: Optional[Dict[str, Any]]
+    alternative_return_buses: List[Dict[str, Any]]
 
     hotel_candidates: List[Dict[str, Any]]
     selected_hotel: Optional[Dict[str, Any]]

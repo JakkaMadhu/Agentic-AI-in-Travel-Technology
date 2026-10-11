@@ -1,5 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 import jwt
+import time
+import peewee
 
 from app.config import settings
 from app.dependencies import get_db, get_current_user
@@ -121,7 +123,16 @@ def refresh_access_token(
             headers={"WWW-Authenticate": "Bearer"},
         )
 
-    user = User.get_or_none(User.id == int(user_id))
+    user = None
+    for attempt in range(3):
+        try:
+            user = User.get_or_none(User.id == int(user_id))
+            break
+        except (peewee.OperationalError, Exception):
+            if attempt == 2:
+                raise
+            time.sleep(0.3)
+
     if not user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,

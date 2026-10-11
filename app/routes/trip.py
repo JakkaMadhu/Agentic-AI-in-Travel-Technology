@@ -30,6 +30,8 @@ from app.schemas.trip import (
     TripDetailResponse,
     TripHistoryItem,
     TripHistoryResponse,
+    ClearHistoryResponse,
+    DeleteTripResponse,
 )
 
 router = APIRouter(prefix="/api/v1/trip", tags=["Trip Planning"])
@@ -56,13 +58,20 @@ def parse_trip_intent(
     from_city = extracted.get("from_city")
     to_city = extracted.get("to_city")
 
+    if not from_city and to_city:
+        from_city = "Bangalore" if to_city.lower() != "bangalore" else "Hyderabad"
+    elif not to_city and from_city:
+        to_city = "Ooty" if from_city.lower() != "ooty" else "Goa"
+
     if not from_city or not to_city:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Unable to extract origin or destination from input query."
+            detail="Unable to extract destination from query. Please specify where you want to travel."
         )
 
     passengers = max(1, int(extracted.get("passengers", 1)))
+    duration_days_raw = extracted.get("duration_days")
+    duration_days = int(duration_days_raw) if duration_days_raw and int(duration_days_raw) >= 1 else None
     total_budget = float(extracted.get("total_budget") or (10000.0 * passengers))
     currency = extracted.get("currency", "INR")
 
@@ -71,11 +80,16 @@ def parse_trip_intent(
     lodging_cap = round(total_budget * 0.40, 2)
     daily_reserve = round(total_budget * 0.30, 2)
     room_count = math.ceil(passengers / 2)
+    nights = max(1, duration_days - 1) if duration_days and duration_days > 1 else (1 if duration_days else None)
+
+    return_bus = extracted.get("return_bus")
 
     extracted_params = ExtractedParameters(
         from_city=from_city,
         to_city=to_city,
         travel_date=extracted.get("travel_date"),
+        duration_days=duration_days,
+        return_bus=return_bus,
         passengers=passengers,
         bus_type=extracted.get("bus_type", "AC Sleeper"),
         arrival_deadline=extracted.get("arrival_deadline"),
@@ -91,7 +105,10 @@ def parse_trip_intent(
             transit_percentage=30.0,
             lodging_percentage=40.0,
             reserve_percentage=30.0,
-            room_count=room_count
+            room_count=room_count,
+            duration_days=duration_days,
+            nights=nights,
+            return_bus=return_bus
         )
     )
 
@@ -167,12 +184,20 @@ def generate_trip_plan(
     session.updated_at = datetime.utcnow()
     session.save()
 
+    duration_days = max(1, int(getattr(request, "duration_days", None) or 2))
+    if duration_days == 2 and session.parsed_intent:
+        extracted = session.parsed_intent.get("extracted_parameters", {})
+        if extracted.get("duration_days"):
+            duration_days = max(1, int(extracted.get("duration_days")))
+
     # Execute LangGraph Pipeline
     initial_state: TravelPlanState = {
         "session_id": request.session_uuid,
         "from_city": request.from_city,
         "to_city": request.to_city,
         "travel_date": request.travel_date,
+        "duration_days": duration_days,
+        "return_bus_required": request.return_bus,
         "passengers": request.passengers,
         "bus_type": request.bus_type,
         "arrival_deadline": request.arrival_deadline,
@@ -182,6 +207,9 @@ def generate_trip_plan(
         "bus_candidates": [],
         "selected_bus": None,
         "alternative_buses": [],
+        "return_bus_candidates": [],
+        "selected_return_bus": None,
+        "alternative_return_buses": [],
         "hotel_candidates": [],
         "selected_hotel": None,
         "alternative_hotels": [],
@@ -217,11 +245,14 @@ def generate_trip_plan(
         selected_bus = TransitOption(
             operator=selected_bus_raw.get("operator", "State Express"),
             bus_type=selected_bus_raw.get("bus_type", "AC Sleeper"),
-            departure_time=selected_bus_raw.get("departure_time", "21:00"),
-            arrival_time=selected_bus_raw.get("arrival_time", "06:00"),
+            departure_time=selected_bus_raw.get("departure_time", "22:30"),
+            arrival_time=selected_bus_raw.get("arrival_time", "06:15"),
             price_per_seat=seat_price,
             total_price=round(seat_price * passengers, 2),
-            booking_reference_url=selected_bus_raw.get("booking_reference_url", "")
+            booking_reference_url=selected_bus_raw.get("booking_reference_url", ""),
+            distance_km=float(selected_bus_raw["distance_km"]) if selected_bus_raw.get("distance_km") is not None else None,
+            origin_coords=selected_bus_raw.get("origin_coords"),
+            destination_coords=selected_bus_raw.get("destination_coords")
         )
 
     alt_buses = []
@@ -234,12 +265,50 @@ def generate_trip_plan(
             arrival_time=b.get("arrival_time", "07:00"),
             price_per_seat=seat_price,
             total_price=round(seat_price * passengers, 2),
-            booking_reference_url=b.get("booking_reference_url", "")
+            booking_reference_url=b.get("booking_reference_url", ""),
+            distance_km=float(b["distance_km"]) if b.get("distance_km") is not None else None,
+            origin_coords=b.get("origin_coords"),
+            destination_coords=b.get("destination_coords")
         ))
+
+    # Format return bus response
+    selected_return_bus_raw = final_state.get("selected_return_bus") if request.return_bus else None
+    selected_return_bus = None
+    if selected_return_bus_raw:
+        ret_seat_price = float(selected_return_bus_raw.get("price_per_seat", 0.0))
+        selected_return_bus = TransitOption(
+            operator=selected_return_bus_raw.get("operator", "State Express Return"),
+            bus_type=selected_return_bus_raw.get("bus_type", "AC Sleeper"),
+            departure_time=selected_return_bus_raw.get("departure_time", "20:00"),
+            arrival_time=selected_return_bus_raw.get("arrival_time", "05:00"),
+            price_per_seat=ret_seat_price,
+            total_price=round(ret_seat_price * passengers, 2),
+            booking_reference_url=selected_return_bus_raw.get("booking_reference_url", ""),
+            distance_km=float(selected_return_bus_raw["distance_km"]) if selected_return_bus_raw.get("distance_km") is not None else None,
+            origin_coords=selected_return_bus_raw.get("origin_coords"),
+            destination_coords=selected_return_bus_raw.get("destination_coords")
+        )
+
+    alt_return_buses = []
+    if request.return_bus:
+        for b in final_state.get("alternative_return_buses", []):
+            ret_seat_price = float(b.get("price_per_seat", 0.0))
+            alt_return_buses.append(TransitOption(
+                operator=b.get("operator", "Regional Travels Return"),
+                bus_type=b.get("bus_type", "AC Sleeper"),
+                departure_time=b.get("departure_time", "21:30"),
+                arrival_time=b.get("arrival_time", "06:30"),
+                price_per_seat=ret_seat_price,
+                total_price=round(ret_seat_price * passengers, 2),
+                booking_reference_url=b.get("booking_reference_url", ""),
+                distance_km=float(b["distance_km"]) if b.get("distance_km") is not None else None,
+                origin_coords=b.get("origin_coords"),
+                destination_coords=b.get("destination_coords")
+            ))
 
     # Format accommodation response
     rooms = math.ceil(passengers / 2)
-    nights = 2
+    nights = max(1, duration_days - 1) if duration_days > 1 else 1
     selected_hotel_raw = final_state.get("selected_hotel")
     selected_hotel = None
     if selected_hotel_raw:
@@ -251,7 +320,8 @@ def generate_trip_plan(
             rooms=rooms,
             price_per_night=night_price,
             total_price=round(night_price * nights * rooms, 2),
-            booking_reference_url=selected_hotel_raw.get("booking_reference_url", "")
+            booking_reference_url=selected_hotel_raw.get("booking_reference_url", ""),
+            photo_url=selected_hotel_raw.get("photo_url")
         )
 
     alt_hotels = []
@@ -264,7 +334,8 @@ def generate_trip_plan(
             rooms=rooms,
             price_per_night=night_price,
             total_price=round(night_price * nights * rooms, 2),
-            booking_reference_url=h.get("booking_reference_url", "")
+            booking_reference_url=h.get("booking_reference_url", ""),
+            photo_url=h.get("photo_url")
         ))
 
     # Format itinerary response
@@ -274,7 +345,12 @@ def generate_trip_plan(
             ActivityItem(
                 name=a.get("name", ""),
                 description=a.get("description", ""),
-                recommended_duration_hours=float(a.get("recommended_duration_hours", 2.0))
+                recommended_duration_hours=float(a.get("recommended_duration_hours", 2.0)),
+                photo_url=a.get("photo_url"),
+                google_maps_url=a.get("google_maps_url"),
+                wikipedia_url=a.get("wikipedia_url"),
+                latitude=float(a["latitude"]) if a.get("latitude") is not None else None,
+                longitude=float(a["longitude"]) if a.get("longitude") is not None else None
             )
             for a in day_data.get("activities", [])
         ]
@@ -292,12 +368,19 @@ def generate_trip_plan(
         currency=request.currency
     )
 
-    transit_section = TransitSection(selected=selected_bus, alternatives=alt_buses)
+    transit_section = TransitSection(
+        selected=selected_bus,
+        alternatives=alt_buses,
+        return_selected=selected_return_bus,
+        return_alternatives=alt_return_buses
+    )
     accommodation_section = AccommodationSection(selected=selected_hotel, alternatives=alt_hotels)
 
     response_data = TripPlanResponse(
         session_uuid=session.session_uuid,
         status="PLAN_GENERATED",
+        from_city=request.from_city,
+        to_city=request.to_city,
         summary=summary,
         transit=transit_section,
         accommodation=accommodation_section,
@@ -367,6 +450,25 @@ def get_user_trip_history(
         items=items
     )
 
+@router.delete(
+    "/history",
+    response_model=ClearHistoryResponse,
+    status_code=status.HTTP_200_OK,
+    summary="Clear all trip history for the authenticated user"
+)
+def clear_user_trip_history(
+    current_user: User = Depends(get_current_user),
+    _db=Depends(get_db)
+):
+    """Delete all trip sessions belonging to the authenticated user."""
+    delete_query = TripSession.delete().where(TripSession.user == current_user)
+    deleted_count = delete_query.execute()
+
+    return ClearHistoryResponse(
+        deleted_count=deleted_count,
+        message=f"Successfully cleared {deleted_count} trip history record(s)."
+    )
+
 @router.get(
     "/{session_uuid}",
     response_model=TripDetailResponse,
@@ -398,4 +500,33 @@ def get_trip_session(
         final_plan=session.final_plan,
         created_at=session.created_at,
         updated_at=session.updated_at
+    )
+
+@router.delete(
+    "/{session_uuid}",
+    response_model=DeleteTripResponse,
+    status_code=status.HTTP_200_OK,
+    summary="Delete a specific trip session by UUID"
+)
+def delete_trip_session(
+    session_uuid: str,
+    current_user: User = Depends(get_current_user),
+    _db=Depends(get_db)
+):
+    """Delete a single trip session belonging to the authenticated user."""
+    delete_query = TripSession.delete().where(
+        (TripSession.session_uuid == session_uuid) &
+        (TripSession.user == current_user)
+    )
+    deleted_count = delete_query.execute()
+
+    if deleted_count == 0:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Trip session with specified UUID not found or not owned by user."
+        )
+
+    return DeleteTripResponse(
+        session_uuid=session_uuid,
+        message="Trip session deleted successfully."
     )

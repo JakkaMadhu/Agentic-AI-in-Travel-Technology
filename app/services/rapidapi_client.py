@@ -25,7 +25,7 @@ def get_destination_id(city_name: str) -> Optional[str]:
     return None
 
 def _generate_synthetic_hotels(city_name: str, max_budget: Optional[float] = None) -> List[Dict[str, Any]]:
-    """Generate realistic hotel accommodations when external API is unreachable or unfunded."""
+    """Generate realistic hotel accommodations with high-res photo URLs when external API is unreachable or unfunded."""
     cap = max_budget or 4000.0
     p1 = round(min(cap * 0.75, 3200.0), 2)
     p2 = round(min(cap * 0.60, 2400.0), 2)
@@ -36,42 +36,45 @@ def _generate_synthetic_hotels(city_name: str, max_budget: Optional[float] = Non
             "hotel_id": f"HTL-{city_name[:3].upper()}-01",
             "hotel_name": f"Grand Heritage {city_name}",
             "name": f"Grand Heritage {city_name}",
-            "star_rating": 4.0,
-            "rating": 4.2,
+            "star_rating": 4.5,
+            "rating": 4.5,
             "nights": 2,
             "rooms": 1,
             "price_per_night": p1,
             "price_raw": p1,
+            "photo_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&auto=format&fit=crop&q=80",
             "booking_reference_url": f"https://www.booking.com/searchresults.html?ss={urllib.parse.quote(city_name)}"
         },
         {
             "hotel_id": f"HTL-{city_name[:3].upper()}-02",
             "hotel_name": f"Comfort Residency {city_name}",
             "name": f"Comfort Residency {city_name}",
-            "star_rating": 3.5,
-            "rating": 3.9,
+            "star_rating": 4.0,
+            "rating": 4.1,
             "nights": 2,
             "rooms": 1,
             "price_per_night": p2,
             "price_raw": p2,
+            "photo_url": "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=900&auto=format&fit=crop&q=80",
             "booking_reference_url": f"https://www.booking.com/searchresults.html?ss={urllib.parse.quote(city_name)}"
         },
         {
             "hotel_id": f"HTL-{city_name[:3].upper()}-03",
             "hotel_name": f"Sterling {city_name} Hill Resort",
             "name": f"Sterling {city_name} Hill Resort",
-            "star_rating": 4.5,
-            "rating": 4.6,
+            "star_rating": 4.8,
+            "rating": 4.8,
             "nights": 2,
             "rooms": 1,
             "price_per_night": p3,
             "price_raw": p3,
+            "photo_url": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=900&auto=format&fit=crop&q=80",
             "booking_reference_url": f"https://www.booking.com/searchresults.html?ss={urllib.parse.quote(city_name)}"
         }
     ]
 
 def fetch_live_hotels(city_name: str, max_budget: Optional[float] = None, limit: int = 5) -> List[Dict[str, Any]]:
-    """Fetch real-time hotel options with coordinates, price, and booking links."""
+    """Fetch real-time hotel options with coordinates, price, photo, and booking links."""
     hotels = []
     dest_id = get_destination_id(city_name)
 
@@ -111,6 +114,8 @@ def fetch_live_hotels(city_name: str, max_budget: Optional[float] = None, limit:
 
                     name = property_data.get("name", f"Hotel in {city_name}")
                     direct_link = f"https://www.booking.com/searchresults.html?ss={urllib.parse.quote(name + ' ' + city_name)}"
+                    photo_urls = property_data.get("photoUrls", [])
+                    photo = photo_urls[0] if photo_urls else "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&auto=format&fit=crop&q=80"
 
                     hotels.append({
                         "hotel_id": str(property_data.get("id", "")),
@@ -122,6 +127,7 @@ def fetch_live_hotels(city_name: str, max_budget: Optional[float] = None, limit:
                         "rooms": 1,
                         "price_per_night": round(price_val / 2.0, 2) if price_val else 2500.0,
                         "price_raw": price_val or 2500.0,
+                        "photo_url": photo,
                         "booking_reference_url": direct_link
                     })
 

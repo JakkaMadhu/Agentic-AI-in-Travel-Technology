@@ -355,6 +355,51 @@ Returns paginated list of previous trip sessions associated with the authenticat
 
 ---
 
+## 5. Clear User Trip History
+
+Deletes all trip sessions associated with the authenticated user.
+
+- **Endpoint:** `DELETE /api/v1/trip/history`
+- **Authentication:** Bearer Token
+
+### Responses
+
+**200 OK**
+```json
+{
+  "deleted_count": 4,
+  "message": "Successfully cleared 4 trip history record(s)."
+}
+```
+
+---
+
+## 6. Delete Individual Trip Session
+
+Deletes a single trip session by UUID belonging to the authenticated user.
+
+- **Endpoint:** `DELETE /api/v1/trip/{session_uuid}`
+- **Authentication:** Bearer Token
+
+### Responses
+
+**200 OK**
+```json
+{
+  "session_uuid": "550e8400-e29b-41d4-a716-446655440000",
+  "message": "Trip session deleted successfully."
+}
+```
+
+**404 Not Found**
+```json
+{
+  "detail": "Session with specified UUID not found or not owned by user."
+}
+```
+
+---
+
 ## Error Handling Standards
 
 All errors returned by the API conform to RFC 7807 standard error formatting:

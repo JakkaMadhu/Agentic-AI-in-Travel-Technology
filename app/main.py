@@ -21,10 +21,18 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# Configure CORS for mobile client integration
+from app.config import settings
+
+# Configure CORS for client and deployment integrations
+raw_origins = getattr(settings, "CORS_ORIGINS", "*").strip()
+if raw_origins == "*" or not raw_origins:
+    cors_origins = ["*"]
+else:
+    cors_origins = [origin.strip() for origin in raw_origins.split(",") if origin.strip()]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=cors_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

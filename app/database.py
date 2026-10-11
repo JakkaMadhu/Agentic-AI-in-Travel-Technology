@@ -11,6 +11,11 @@ def create_database_client() -> PostgresqlExtDatabase:
     if "sslmode" not in db_config and "localhost" not in settings.DATABASE_URL:
         db_config["sslmode"] = "require"
     db_config["autorollback"] = True
+    db_config["connect_timeout"] = 10
+    db_config["keepalives"] = 1
+    db_config["keepalives_idle"] = 30
+    db_config["keepalives_interval"] = 10
+    db_config["keepalives_count"] = 5
 
     return PostgresqlExtDatabase(**db_config)
 

@@ -82,5 +82,7 @@ sequenceDiagram
     
     Orchestrator->>Orchestrator: Synthesize plan, verify budget, generate deep links
     Orchestrator-->>API: Finalized TravelPlanState
-    API-->>Client: HTTP 200 JSON (Itinerary and Map Coordinates)
 ```
+
+For detailed system architecture, execution sequence diagrams, and LangGraph state lifecycle flows, see [docs/flow_diagrams.md](docs/flow_diagrams.md).
+

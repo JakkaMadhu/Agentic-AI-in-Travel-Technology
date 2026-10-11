@@ -1,3 +1,5 @@
+import time
+import peewee
 from typing import Generator
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
@@ -10,9 +12,16 @@ from app.core.security import decode_token
 security_scheme = HTTPBearer(auto_error=True)
 
 def get_db() -> Generator:
-    """Dependency ensuring safe Peewee connection open/close per request."""
+    """Dependency ensuring resilient Peewee connection with auto-retry on transient SSL pooler drops."""
     if db.is_closed():
-        db.connect()
+        for attempt in range(3):
+            try:
+                db.connect(reuse_if_open=True)
+                break
+            except (peewee.OperationalError, Exception):
+                if attempt == 2:
+                    raise
+                time.sleep(0.4)
     try:
         yield db
     finally:
@@ -52,7 +61,16 @@ def get_current_user(
     except jwt.PyJWTError:
         raise credentials_exception
 
-    user = User.get_or_none(User.id == int(user_id))
+    user = None
+    for attempt in range(3):
+        try:
+            user = User.get_or_none(User.id == int(user_id))
+            break
+        except (peewee.OperationalError, Exception):
+            if attempt == 2:
+                raise
+            time.sleep(0.3)
+
     if user is None:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,

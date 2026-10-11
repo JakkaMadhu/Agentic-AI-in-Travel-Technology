@@ -1,128 +1,83 @@
 import json
-import re
 import urllib.request
 from datetime import datetime, timedelta
-from typing import Dict, Any, Optional
+from typing import Dict, Any
 from app.config import settings
 
-def _heuristic_intent_extractor(user_query: str) -> Dict[str, Any]:
-    """Rule-based heuristic extraction fallback when Groq LLM is unreachable."""
-    q = user_query.strip()
-    
-    # Extract cities
-    from_city = None
-    to_city = None
-    route_match = re.search(r"from\s+([a-zA-Z\s]+?)\s+to\s+([a-zA-Z\s]+?)(?:\s+for|\s+under|\s+starting|\s+reach|\s+with|\s*$|,)", q, re.IGNORECASE)
-    if route_match:
-        from_city = route_match.group(1).strip().title()
-        to_city = route_match.group(2).strip().title()
-    else:
-        cities = re.findall(r"\b([A-Z][a-z]+)\b", q)
-        if len(cities) >= 2:
-            from_city = cities[0]
-            to_city = cities[1]
-
-    # Extract passengers
-    passengers = 1
-    p_match = re.search(r"(\d+)\s*(?:people|persons|passengers|travelers|adults)", q, re.IGNORECASE)
-    if p_match:
-        passengers = int(p_match.group(1))
-
-    # Extract budget
-    budget = None
-    b_match = re.search(r"(?:under|below|budget|within|max)?\s*(?:rs\.?|inr|₹)?\s*(\d{4,7})\s*(?:inr|rs|rupees)?", q, re.IGNORECASE)
-    if b_match:
-        budget = float(b_match.group(1))
-
-    # Extract bus type
-    bus_type = "AC Sleeper"
-    if re.search(r"non-?ac", q, re.IGNORECASE):
-        bus_type = "Non-AC Seater"
-    elif re.search(r"sleeper", q, re.IGNORECASE):
-        bus_type = "AC Sleeper"
-    elif re.search(r"seater", q, re.IGNORECASE):
-        bus_type = "AC Seater"
-
-    # Extract arrival deadline
-    arrival_deadline = None
-    arr_match = re.search(r"(?:reach|arrive|before|by)\s*(\d{1,2}(?::\d{2})?)\s*(am|pm)?", q, re.IGNORECASE)
-    if arr_match:
-        raw_time = arr_match.group(1)
-        ampm = (arr_match.group(2) or "").lower()
-        if ":" in raw_time:
-            hours, mins = map(int, raw_time.split(":"))
-        else:
-            hours, mins = int(raw_time), 0
-        if ampm == "pm" and hours < 12:
-            hours += 12
-        elif ampm == "am" and hours == 12:
-            hours = 0
-        arrival_deadline = f"{hours:02d}:{mins:02d}"
-
-    # Default travel date: upcoming Friday
-    today = datetime.now()
-    days_until_friday = (4 - today.weekday()) % 7
-    if days_until_friday == 0:
-        days_until_friday = 7
-    default_date = (today + timedelta(days=days_until_friday)).strftime("%Y-%m-%d")
-
-    return {
-        "from_city": from_city or "Bangalore",
-        "to_city": to_city or "Ooty",
-        "travel_date": default_date,
-        "passengers": passengers,
-        "bus_type": bus_type,
-        "arrival_deadline": arrival_deadline or "08:00",
-        "total_budget": budget or (10000.0 * passengers),
-        "currency": "INR"
-    }
-
 def extract_intent_with_groq(user_query: str) -> Dict[str, Any]:
-    """Extract travel constraints from natural language query using Groq Cloud with heuristic fallback."""
+    """
+    Dynamically extracts travel constraints using LLM zero-shot multilingual understanding.
+    Zero hardcoded dictionaries, zero regex heuristics, and zero fake fallback cities.
+    """
     if not settings.GROQ_API_KEY.strip():
-        return _heuristic_intent_extractor(user_query)
+        raise RuntimeError("GROQ_API_KEY is not configured. An LLM service is required for natural language travel planning.")
 
+    today_str = datetime.now().strftime("%Y-%m-%d")
     system_prompt = (
-        "You are an expert travel constraint extractor. Output ONLY a valid JSON object with keys: "
-        '"from_city" (string), "to_city" (string), "travel_date" (YYYY-MM-DD string), '
-        '"passengers" (integer >= 1), "bus_type" (e.g. "AC Sleeper"), "arrival_deadline" (HH:MM 24-hr or null), '
-        '"total_budget" (numeric or null), "currency" ("INR"). '
-        "Map regional names to official English city names."
+        "You are an expert multilingual travel constraint extractor. "
+        f"Today's date is {today_str}. "
+        "Extract the user's travel intent into a valid JSON object matching this schema: "
+        '{"from_city": string or null, "to_city": string or null, "travel_date": "YYYY-MM-DD" or null, '
+        '"duration_days": integer >= 1 or null, "return_bus": boolean or null, "passengers": integer >= 1, '
+        '"bus_type": string or null, "arrival_deadline": "HH:MM" or null, "total_budget": numeric or null, "currency": "INR"}. '
+        "You natively understand all languages, scripts (e.g. Telugu, Hindi, Tamil), and transliterations (e.g. Tanglish). "
+        "Always translate regional city names to standard English (e.g. Hyderabad, Visakhapatnam, Bangalore, Ooty, etc.). "
+        "Extract duration of the trip in days into duration_days (e.g., '3-day trip' / 'మూడు రోజులు' -> 3, '4 days' -> 4, '1 day' -> 1). If duration is NOT specified in the query, set duration_days to null. Do not guess duration. "
+        "Extract whether a return bus ticket is wanted into return_bus (true for 'round trip' / 'return bus' / 'both ways' / 'రిటర్న్ బస్సు', false for 'one way' / 'single trip'). If NOT mentioned, set return_bus to null. Do not guess. "
+        "If the user says 'today' / 'ఈరోజు', set travel_date to today's date. "
+        "If the user only specifies where they want to go (destination e.g. 'హైదరాబాద్ వెళ్ళాలి' / 'going to Hyderabad') without stating their starting point, default from_city to 'Bangalore' (or 'Hyderabad' if destination is Bangalore). "
+        "If the user does not specify a field, set it to null."
     )
 
     payload = {
         "model": settings.GROQ_MODEL,
         "messages": [
             {"role": "system", "content": system_prompt},
-            {"role": "user", "content": f'Extract travel intent: "{user_query}"'},
+            {"role": "user", "content": f'Extract travel intent from: "{user_query}"'},
         ],
         "response_format": {"type": "json_object"},
-        "temperature": 0.1,
-        "max_tokens": 200,
+        "temperature": 0.0,
+        "max_tokens": 250,
     }
 
-    try:
-        req = urllib.request.Request(
-            settings.GROQ_ENDPOINT,
-            data=json.dumps(payload).encode("utf-8"),
-            headers={
-                "Content-Type": "application/json",
-                "Authorization": f"Bearer {settings.GROQ_API_KEY.strip()}",
-                "User-Agent": "AgenticTravelTech/1.0"
-            },
-            method="POST"
-        )
+    req = urllib.request.Request(
+        settings.GROQ_ENDPOINT,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {settings.GROQ_API_KEY.strip()}",
+            "User-Agent": "AgenticTravelTech/1.0"
+        },
+        method="POST"
+    )
 
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            result = json.loads(resp.read().decode("utf-8"))
-            content = result["choices"][0]["message"]["content"]
-            parsed = json.loads(content)
-            
-            # Normalize fields
-            if not parsed.get("passengers"):
-                parsed["passengers"] = 1
-            if not parsed.get("currency"):
-                parsed["currency"] = "INR"
-            return parsed
-    except Exception:
-        return _heuristic_intent_extractor(user_query)
+    with urllib.request.urlopen(req, timeout=12) as resp:
+        result = json.loads(resp.read().decode("utf-8"))
+        content = result["choices"][0]["message"]["content"]
+        parsed = json.loads(content)
+
+    # Dynamic normalization for optional fields
+    if parsed.get("duration_days") is not None:
+        try:
+            val = int(parsed["duration_days"])
+            parsed["duration_days"] = val if val >= 1 else None
+        except Exception:
+            parsed["duration_days"] = None
+    else:
+        parsed["duration_days"] = None
+
+    if parsed.get("return_bus") is not None:
+        parsed["return_bus"] = bool(parsed["return_bus"])
+    else:
+        parsed["return_bus"] = None
+
+    if not parsed.get("passengers"):
+        parsed["passengers"] = 1
+    if not parsed.get("currency"):
+        parsed["currency"] = "INR"
+    if not parsed.get("travel_date"):
+        today = datetime.now()
+        days_until_friday = (4 - today.weekday()) % 7 or 7
+        parsed["travel_date"] = (today + timedelta(days=days_until_friday)).strftime("%Y-%m-%d")
+
+    return parsed

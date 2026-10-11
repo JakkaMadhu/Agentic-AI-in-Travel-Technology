@@ -23,8 +23,11 @@ class Settings(BaseSettings):
     # JWT Authentication
     JWT_SECRET_KEY: str = "traveltech_secret_jwt_key_change_in_production_32bytes"
     JWT_ALGORITHM: str = "HS256"
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = 15
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 1440
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
+
+    # CORS Settings (comma-separated origins or * for all)
+    CORS_ORIGINS: str = "*"
 
     class Config:
         env_file = str(BASE_DIR / ".env")
